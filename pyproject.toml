@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "roblox-learner"
+version = "0.1.0"
+description = "Small external visual policies, demonstration learning, and evidence-based evaluation for Roblox on macOS"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["torch>=2.6,<3", "numpy>=2,<3", "Pillow>=11,<13", "psutil>=6,<8"]
+
+[project.optional-dependencies]
+mac = ["pyobjc-framework-Quartz>=11,<13; sys_platform == 'darwin'", "pyobjc-framework-Cocoa>=11,<13; sys_platform == 'darwin'"]
+dev = ["pytest>=8,<10"]
+
+[project.scripts]
+roblox-record = "roblox_learner.record:main"
+roblox-train = "roblox_learner.train:main"
+roblox-play = "roblox_learner.play:main"
+roblox-evaluate = "roblox_learner.evaluate:main"
+roblox-benchmark = "roblox_learner.benchmark:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "checkpoint": "untrained diagnostic checkpoint (not distributed)",
+  "checkpoint_bytes": 1011963,
+  "parameter_count": 251740,
+  "parameter_bytes_float32": 1006960,
+  "hardware": {
+    "cpu": "arm",
+    "machine": "arm64",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "logical_cpu_count": 10,
+    "device": "cpu",
+    "torch_threads": 4,
+    "python": "3.12.13",
+    "torch": "2.14.1"
+  },
+  "input": {
+    "source": "random workload pixels (not a gameplay evaluation)",
+    "screenshot_size": [
+      1280,
+      720
+    ],
+    "policy_image_size": 96,
+    "stack_size": 4,
+    "action_count": 12,
+    "batch_size": 1
+  },
+  "iterations_per_measurement": 50,
+  "warmup_iterations": 20,
+  "inference_and_action_selection": {
+    "p50_ms": 0.4811455,
+    "p95_ms": 0.61857135,
+    "mean_ms": 0.48546504,
+    "max_ms": 0.684292,
+    "p95_equivalent_fps": 1616.628380865037
+  },
+  "preprocessing_inference_and_action_selection": {
+    "p50_ms": 1.5363745,
+    "p95_ms": 1.8492377999999998,
+    "mean_ms": 1.54944334,
+    "max_ms": 1.8965,
+    "p95_equivalent_fps": 540.7633350345749
+  },
+  "memory": {
+    "process_rss_before_checkpoint_bytes": 204619776,
+    "process_rss_after_benchmark_bytes": 224329728,
+    "process_peak_rss_bytes": 224329728,
+    "rss_scope": "this benchmark Python process, including imported libraries; excludes Roblox",
+    "conservative_process_plus_device_bytes": 224329728,
+    "under_6_decimal_gb": true,
+    "device_accounting_note": "Device bytes are added conservatively; unified memory may overlap RSS."
+  },
+  "target_fps": 20,
+  "meets_policy_compute_budget_at_p95": true,
+  "excluded_from_latency": [
+    "screen capture",
+    "input injection",
+    "Roblox rendering and networking"
+  ],
+  "gameplay_success": "NOT EVALUATED",
+  "training_epoch": null,
+  "diagnostic_only": true,
+  "trained": false,
+  "usable_game_policy": false,
+  "gameplay_evidence": false,
+  "note": "Historical compute-only measurement on random workload pixels and random untrained weights. Not evidence of game ability or end-to-end desktop speed. The 12-action diagnostic vocabulary differs from supplied game configs.",
+  "source_report_sha256": "604039d9aaf798eba5806a1040c48f92b5d46d65a8ecc59e3cf660b55568b833"
+}

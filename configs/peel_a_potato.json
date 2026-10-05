@@ -1,0 +1,248 @@
+{
+  "name": "Peel a Potato",
+  "game_id": 79625784751575,
+  "game_url": "https://www.roblox.com/games/79625784751575/Peel-a-Potato",
+  "evaluation": {
+    "criterion_id": "potato_shipment_complete",
+    "criterion": "Complete one shipment by clearing the 2400-potato pile, and show the shipment completion or earned Caps result.",
+    "milestone_criterion_id": "potato_one_paid_cycle",
+    "milestone": "Grab, peel at the bench, and deposit a potato in the water channel; show the payment change.",
+    "status": "unvalidated"
+  },
+  "actions": [
+    {
+      "name": "idle",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward",
+      "keys": [
+        "w"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "back",
+      "keys": [
+        "s"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "left",
+      "keys": [
+        "a"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "right",
+      "keys": [
+        "d"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward_left",
+      "keys": [
+        "w",
+        "a"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward_right",
+      "keys": [
+        "w",
+        "d"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "jump",
+      "keys": [
+        "space"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward_jump",
+      "keys": [
+        "w",
+        "space"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "look_left",
+      "keys": [],
+      "mouse": {
+        "dx": -0.025,
+        "dy": 0,
+        "button": "right"
+      }
+    },
+    {
+      "name": "look_right",
+      "keys": [],
+      "mouse": {
+        "dx": 0.025,
+        "dy": 0,
+        "button": "right"
+      }
+    },
+    {
+      "name": "look_up",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": -0.02,
+        "button": "right"
+      }
+    },
+    {
+      "name": "look_down",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0.02,
+        "button": "right"
+      }
+    },
+    {
+      "name": "interact",
+      "keys": [
+        "e"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "click",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": "left"
+      }
+    },
+    {
+      "name": "peel_left",
+      "keys": [],
+      "mouse": {
+        "dx": -0.035,
+        "dy": 0,
+        "button": "left"
+      }
+    },
+    {
+      "name": "peel_right",
+      "keys": [],
+      "mouse": {
+        "dx": 0.035,
+        "dy": 0,
+        "button": "left"
+      }
+    },
+    {
+      "name": "peel_up",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": -0.035,
+        "button": "left"
+      }
+    },
+    {
+      "name": "peel_down",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0.035,
+        "button": "left"
+      }
+    },
+    {
+      "name": "slot_one",
+      "keys": [
+        "1"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "slot_two",
+      "keys": [
+        "2"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "camera_hold",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": "right"
+      }
+    }
+  ],
+  "schema_version": 1,
+  "target_bundle": "com.roblox.RobloxPlayer",
+  "decision_hz": 10,
+  "control_status": "provisional: verify controls and mouse sensitivity in live gameplay before collecting training data",
+  "source_checked": "2026-10-05",
+  "observation": {
+    "image_size": 96,
+    "stack_size": 4,
+    "channels": "RGB"
+  },
+  "memory_budget_mb": 5500
+}

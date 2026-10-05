@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "checked_at_utc": "2026-10-05T14:03:04.978922+00:00",
+  "overall_status": "incomplete_live_training_and_gameplay_validation",
+  "user_goal_achieved": false,
+  "package": {
+    "name": "roblox-learner",
+    "version": "0.1.0",
+    "editable_build": "passed",
+    "editable_install": "passed",
+    "network_used_for_validation_install": false,
+    "installation_options": [
+      "--no-index",
+      "--no-deps",
+      "--no-build-isolation",
+      "-e"
+    ],
+    "dependency_check": "passed; no broken requirements",
+    "console_entry_points": [
+      {
+        "entry_point": "roblox-record",
+        "returncode": 0,
+        "usage_present": true
+      },
+      {
+        "entry_point": "roblox-train",
+        "returncode": 0,
+        "usage_present": true
+      },
+      {
+        "entry_point": "roblox-play",
+        "returncode": 0,
+        "usage_present": true
+      },
+      {
+        "entry_point": "roblox-evaluate",
+        "returncode": 0,
+        "usage_present": true
+      },
+      {
+        "entry_point": "roblox-benchmark",
+        "returncode": 0,
+        "usage_present": true
+      }
+    ]
+  },
+  "automated_tests": {
+    "status": "passed",
+    "passed": 68,
+    "failures": 0,
+    "errors": 0,
+    "report": "unit-tests.json",
+    "gameplay_evidence": false
+  },
+  "documentation_cli": {
+    "checked_project_commands": 12,
+    "failures": [],
+    "method": "Actual argparse parsing with execution intercepted before capture, input, training or filesystem mutations. Setup commands syntax-checked; editable install and pytest separately executed."
+  },
+  "public_release_scan": {
+    "scope": "Public source, config, documentation and report text; excludes ignored local artifacts",
+    "files_scanned": 22,
+    "matches": [],
+    "method": "Heuristic pattern scan; no secret values are emitted"
+  },
+  "roblox_client": {
+    "version": "0.741.0.7411056",
+    "installed": true,
+    "native_client_launched": true,
+    "peel_a_potato_lobby_opened": true,
+    "observed_via": "Computer-use UI by interactive root agent",
+    "scope": "Installation and target lobby access only; no gameplay completion claim."
+  },
+  "standalone_os_permissions": {
+    "screen_recording": false,
+    "accessibility": false,
+    "input_monitoring": false,
+    "status": "denied_or_ungranted; explicit user permission is pending",
+    "source": "Native permission diagnosis reported by interactive root agent",
+    "changed_by_validation": false
+  },
+  "training": {
+    "real_game_demonstrations_collected": 0,
+    "trained_game_policy_delivered": false,
+    "completed_real_game_training_runs": 0,
+    "model_status": "No trained game model yet."
+  },
+  "live_gameplay": {
+    "standalone_agent_trials": 0,
+    "verified_game_wins": 0,
+    "peel_a_potato_shipment_completed": false,
+    "deadly_delivery_floor10_evacuated": false,
+    "obby_completed": false,
+    "sustained_successful_play_seconds": 0,
+    "standalone_end_to_end_latency_measured": false,
+    "standalone_gameplay_tested": false
+  },
+  "compute_diagnostic": {
+    "report": "compute-untrained.json",
+    "untrained_random_weights": true,
+    "random_workload_pixels": true,
+    "evidence_of_game_skill": false,
+    "evidence_of_end_to_end_game_speed": false
+  },
+  "release": {
+    "license": "MIT",
+    "repository_published": false,
+    "published_by_this_validation": false,
+    "private_paths_redacted_from_diagnostic": true
+  },
+  "remaining_work": [
+    "Grant native Screen Recording, Accessibility and Input Monitoring permissions for the standalone host.",
+    "Record correctly aligned real demonstrations and train a game policy.",
+    "Refine on observed failures while preserving held-out data.",
+    "Run independent unassisted game trials with visible success evidence.",
+    "Measure sustained play and full capture-to-input timing/memory in actual Roblox."
+  ]
+}

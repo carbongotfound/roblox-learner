@@ -1,0 +1,244 @@
+{
+  "name": "Deadly Delivery",
+  "game_id": 125810438250765,
+  "game_url": "https://www.roblox.com/games/125810438250765/Deadly-Delivery",
+  "evaluation": {
+    "criterion_id": "deadly_floor10_evacuation",
+    "criterion": "Show a successful floor 10 evacuation result reached from a fresh run without intervention. This is a declared milestone, not total game completion.",
+    "status": "unvalidated"
+  },
+  "actions": [
+    {
+      "name": "idle",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward",
+      "keys": [
+        "w"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "back",
+      "keys": [
+        "s"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "left",
+      "keys": [
+        "a"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "right",
+      "keys": [
+        "d"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward_left",
+      "keys": [
+        "w",
+        "a"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward_right",
+      "keys": [
+        "w",
+        "d"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "jump",
+      "keys": [
+        "space"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "forward_jump",
+      "keys": [
+        "w",
+        "space"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "look_left",
+      "keys": [],
+      "mouse": {
+        "dx": -0.025,
+        "dy": 0,
+        "button": "right"
+      }
+    },
+    {
+      "name": "look_right",
+      "keys": [],
+      "mouse": {
+        "dx": 0.025,
+        "dy": 0,
+        "button": "right"
+      }
+    },
+    {
+      "name": "look_up",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": -0.02,
+        "button": "right"
+      }
+    },
+    {
+      "name": "look_down",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0.02,
+        "button": "right"
+      }
+    },
+    {
+      "name": "sprint_forward",
+      "keys": [
+        "w",
+        "shift"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "interact",
+      "keys": [
+        "e"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "use",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": "left"
+      }
+    },
+    {
+      "name": "slot_one",
+      "keys": [
+        "1"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "slot_two",
+      "keys": [
+        "2"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "slot_three",
+      "keys": [
+        "3"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "drop",
+      "keys": [
+        "g"
+      ],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": null
+      }
+    },
+    {
+      "name": "camera_hold",
+      "keys": [],
+      "mouse": {
+        "dx": 0,
+        "dy": 0,
+        "button": "right"
+      }
+    }
+  ],
+  "schema_version": 1,
+  "target_bundle": "com.roblox.RobloxPlayer",
+  "decision_hz": 10,
+  "control_status": "provisional: verify controls and mouse sensitivity in live gameplay before collecting training data",
+  "source_checked": "2026-10-05",
+  "observation": {
+    "image_size": 96,
+    "stack_size": 4,
+    "channels": "RGB"
+  },
+  "memory_budget_mb": 5500
+}
