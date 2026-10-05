@@ -1,17 +1,17 @@
 # Exact game targets and measurable success
 
-These are the two exact-title Roblox experiences found on 5 October 2026. Game descriptions establish objectives; they are not evidence that this model can play. The action vocabularies in `configs/` are provisional until their controls and sensitivity are confirmed in the live client.
+The potato target was corrected in the live client on 5 October 2026 after the user identified the intended game. Game descriptions establish objectives; they are not evidence that this model can play. The action vocabularies in `configs/` are provisional until their controls and sensitivity are confirmed in the live client.
 
 | Target | Place ID | Objective used in this repository |
 | --- | --- | --- |
-| [Peel a Potato — Apartment Horrors](https://www.roblox.com/games/79625784751575/Peel-a-Potato) | `79625784751575` | Finish one shipment by clearing the 2,400-potato pile and showing the completion/Caps result. |
+| [Peel THE Potato — soviet potato republic](https://www.roblox.com/games/116701845804918/Peel-THE-Potato) | `116701845804918` | Find the hidden key, capture its visible evidence, unlock the vault, and show the escape outcome. |
 | [Deadly Delivery — WTHHHELL BRO](https://www.roblox.com/games/125810438250765/Deadly-Delivery) | `125810438250765` | First benchmark: evacuate from floor 10 after a fresh run. This is a milestone, not a claim of total game completion. |
 
-The [official Peel a Potato description](https://www.roblox.com/games/79625784751575/Peel-a-Potato) explains the grab → bench peel → water-channel payment loop and the 2,400-potato shipment. A useful early criterion is `potato_one_paid_cycle`, verified by a visible successful peel/deposit and payment change. That criterion must never be relabeled `potato_shipment_complete`.
+The live-tested potato loop is collecting potatoes, depositing them into the raw crate, peeling with mouse swipes at a table, selling at the peeled-potato crate, and purchasing tools with earned game currency. The visible 2,500-potato quest is a milestone; it is not proof of finding the key or escaping. External keyboard/mouse development is in progress and no trained policy has completed this target.
 
 The [official Deadly Delivery page with badge descriptions](https://www.roblox.com/es/games/125810438250765/Deadly-Delivery?gameSearchSessionInfo=9466c5e1-25b8-4693-8cfc-9cddb6fcfb17&isAd=false&nativeAdData=&numberOfLoadedTiles=103&page=searchPage&placeId=125810438250765&position=85&universeId=8950496606) describes evacuation badges for floors 10, 20 and 30. Freeze a specific start and evacuation goal before testing. Higher-floor achievements, cooperative survival and a complete solo run are separate tasks with separate denominators.
 
-There is a different [Peel THE Potato](https://www.roblox.com/games/116701845804918/Peel-THE-Potato), by soviet potato republic, whose objective is finding a hidden key and escaping a vault. It is not the place targeted here. The generic obby config does not identify or certify a particular obby.
+The earlier `peel_a_potato.json` profile refers to a different game by Apartment Horrors. Use `peel_the_potato.json` for the current target. The generic obby config does not certify a particular obby.
 
 ## What counts as a trial
 
@@ -19,7 +19,7 @@ Start each trial with the same checkpoint, declared model SHA-256, action config
 
 A trial begins when the agent receives control in the declared start state. All subsequent deaths, timeouts, disconnects, stuck loops, capture failures and manual interventions belong in the outcome. A retry is another trial. Manual setup is permitted before the trial; any intervention after it starts makes that trial assisted. Do not discard difficult starts or only report the best clip.
 
-For a potato paid-cycle trial, show the starting potato/payment state and the successful payment change. For a shipment trial, show shipment progress at the beginning and the game's shipment completion reward at the end. Joining a nearly completed cooperative shipment does not demonstrate an autonomous full shipment.
+For the current potato target, preserve the initial progress and upgrades, the key-found screenshot, and the actual vault escape outcome. The development session began cooperatively before continuing solo; it cannot establish a fresh solo full-game win.
 
 For a delivery evacuation trial, preserve the fresh-run start, progression and actual evacuation result. A lobby screen, loading screen, survived minute, delivery interaction, or floor counter by itself is not proof of evacuation. If another player carried the objective, report the cooperative contribution explicitly; it is not solo-agent completion.
 

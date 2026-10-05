@@ -2,7 +2,7 @@
 
 A small, local visual-policy training toolkit for macOS. It records gameplay demonstrations, trains a convolutional policy, runs that policy using screenshots and ordinary keyboard/mouse events, and evaluates recorded trials against explicit game objectives.
 
-**Current status: training/runtime toolkit under live validation. No policy has yet demonstrated successful completion of Peel a Potato, Deadly Delivery, or an obby.** A working pipeline and fast inference do not establish gameplay skill. See [validation](reports/validation.json) for measured evidence.
+**Current status: training/runtime toolkit under live validation. No policy has yet demonstrated successful completion of Peel THE Potato, Deadly Delivery, or an obby.** A working pipeline and fast inference do not establish gameplay skill. See [validation](reports/validation.json) for measured evidence.
 
 This is an independent MIT-licensed project, not an official Roblox model. Supporting a game's controls does not mean solving that game. New games require demonstrations, a useful action vocabulary, and a verifiable success condition.
 
@@ -26,23 +26,52 @@ The compact four-frame RGB CNN has approximately 250,000 parameters. The exact c
 roblox-play --diagnose
 
 # Capture a separate episode per attempt; F8 toggles recording, Escape stops.
-roblox-record --config configs/peel_a_potato.json --output data/potato/episode-001
+roblox-record --config configs/peel_the_potato.json --output data/potato/episode-001
 
 # Repeat recording with distinct episodes, then train.
-roblox-train --dataset data/potato --actions configs/peel_a_potato.json \
+roblox-train --dataset data/potato --actions configs/peel_the_potato.json \
   --output models/potato.pt --epochs 30 --device auto
 
 # Measure actual policy compute; this does not measure game completion.
 roblox-benchmark --checkpoint models/potato.pt --device cpu --iterations 500
 
 # Bring Roblox gameplay to the foreground during the countdown.
-roblox-play --model models/potato.pt --config configs/peel_a_potato.json \
+roblox-play --model models/potato.pt --config configs/peel_the_potato.json \
   --output runs/potato/attempt-001 --seconds 120 --fps 10
 ```
 
 The app controlling the Mac needs Screen Recording and Accessibility already enabled. Demonstration recording of a locked camera also needs Input Monitoring. The code diagnoses missing access and does not silently change system permissions. Escape stops the agent; changing the foreground app releases controls. Runs have explicit duration and memory limits.
 
 Read the [complete training and refinement workflow](docs/TRAINING.md), [game objectives](docs/GAME_TARGETS.md), and each command's `--help`. Evaluation keeps failed, crashed, and unannotated attempts in its denominator. Visible success evidence must be reviewed; low training loss is never recorded as a win.
+
+## External potato controls under development
+
+The current live target is **Peel THE Potato**, place `116701845804918`.
+The external workbench in `roblox_learner.potato` uses ordinary mouse and keyboard
+input with foreground and Escape checks. `scripts/peel_table.py` repeats tested
+swipes only after OCR recognizes the peel-table interface; it saves a screenshot
+and stops when that interface changes. This is a narrow scripted controller,
+not a trained policy or an autonomous full-game solver. Navigation, upgrades,
+and interpretation of the key/escape outcome still require an operator.
+
+Build the permission-bearing [macOS launcher](macos/README.md) and start its
+`collect` module with these arguments:
+
+```json
+{"id":"potato-001","module":"roblox_learner.collect","args":["potato","--control-dir","/absolute/path/to/potato-control","--seconds","7200","--activate"]}
+```
+
+After entering a peel table in the game:
+
+```sh
+python scripts/peel_table.py --control-dir /absolute/path/to/potato-control \
+  --evidence-dir /absolute/path/to/evidence --batches 5
+```
+
+Do not run competing command senders. Each finite batch checks the screen again
+before continuing; leaving Roblox or pressing Escape stops the workbench.
+The separate video recorder needs `ffmpeg` at `/opt/homebrew/bin/ffmpeg` and saves
+only the foreground Roblox window, with explicit pause frames for capture gaps.
 
 ## Limits
 

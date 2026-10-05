@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at_utc": "2026-10-05T14:03:04.978922+00:00",
+  "checked_at_utc": "2026-10-05T20:19:17.594210+00:00",
   "overall_status": "incomplete_live_training_and_gameplay_validation",
   "user_goal_achieved": false,
   "package": {
@@ -46,7 +46,7 @@
   },
   "automated_tests": {
     "status": "passed",
-    "passed": 68,
+    "passed": 82,
     "failures": 0,
     "errors": 0,
     "report": "unit-tests.json",
@@ -69,14 +69,15 @@
     "native_client_launched": true,
     "peel_a_potato_lobby_opened": true,
     "observed_via": "Computer-use UI by interactive root agent",
-    "scope": "Installation and target lobby access only; no gameplay completion claim."
+    "scope": "Correct Peel THE Potato session played through quest 6/6 using external mouse and keyboard. Key and escape remain unverified.",
+    "peel_the_potato_place_id": 116701845804918
   },
   "standalone_os_permissions": {
-    "screen_recording": false,
-    "accessibility": false,
-    "input_monitoring": false,
-    "status": "denied_or_ungranted; explicit user permission is pending",
-    "source": "Native permission diagnosis reported by interactive root agent",
+    "screen_recording": true,
+    "accessibility": true,
+    "input_monitoring": true,
+    "status": "granted for the local permission-bearing launcher and used in live external control",
+    "source": "User-approved macOS grants followed by successful native child capture and input",
     "changed_by_validation": false
   },
   "training": {
@@ -93,7 +94,18 @@
     "obby_completed": false,
     "sustained_successful_play_seconds": 0,
     "standalone_end_to_end_latency_measured": false,
-    "standalone_gameplay_tested": false
+    "standalone_gameplay_tested": false,
+    "external_operator_play": {
+      "game": "Peel THE Potato",
+      "place_id": 116701845804918,
+      "progress": "Quest 6/6: find the key",
+      "controller": "Root assistant operating external mouse/keyboard workbench and guarded peel-table strokes",
+      "initial_session": "cooperative; continued alone after the other player left",
+      "trained_policy": false,
+      "key_found": false,
+      "escape_verified": false,
+      "video_recorded": true
+    }
   },
   "compute_diagnostic": {
     "report": "compute-untrained.json",
@@ -104,12 +116,13 @@
   },
   "release": {
     "license": "MIT",
-    "repository_published": false,
+    "repository_published": true,
     "published_by_this_validation": false,
-    "private_paths_redacted_from_diagnostic": true
+    "private_paths_redacted_from_diagnostic": true,
+    "repository_url": "https://github.com/carbongotfound/roblox-learner"
   },
   "remaining_work": [
-    "Grant native Screen Recording, Accessibility and Input Monitoring permissions for the standalone host.",
+    "Finish the current externally controlled key and escape objective; do not count it as a trained-policy win.",
     "Record correctly aligned real demonstrations and train a game policy.",
     "Refine on observed failures while preserving held-out data.",
     "Run independent unassisted game trials with visible success evidence.",

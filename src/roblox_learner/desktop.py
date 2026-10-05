@@ -248,6 +248,18 @@ class MacDesktop:
             raise FocusLost("Roblox lost foreground focus; input stopped")
 
     def window(self) -> Window:
+        # Fullscreen transitions briefly remove a foreground window from the
+        # on-screen list. No input is sent while waiting for it to reappear.
+        deadline = time.monotonic() + 1.5
+        while True:
+            try:
+                return self._window_once()
+            except DesktopError as exc:
+                if not str(exc).startswith('No visible Roblox game window') or time.monotonic() >= deadline:
+                    raise
+                time.sleep(.05)
+
+    def _window_once(self) -> Window:
         self.require_focus()
         app = self.workspace.frontmostApplication()
         pid = int(app.processIdentifier())
@@ -260,7 +272,7 @@ class MacDesktop:
             if b["Width"] >= 200 and b["Height"] >= 150:
                 candidates.append(Window(int(item[self.q.kCGWindowNumber]), pid, float(b["X"]), float(b["Y"]), int(b["Width"]), int(b["Height"])))
         if not candidates:
-            raise DesktopError("No visible Roblox game window; launch a game before recording or play")
+            raise DesktopError(f"No visible Roblox game window (foreground pid={pid}); launch a game before recording or play")
         return max(candidates, key=lambda w: w.width * w.height)
 
     def capture(self) -> Any:

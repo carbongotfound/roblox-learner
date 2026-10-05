@@ -12,7 +12,7 @@ license = "MIT"
 dependencies = ["torch>=2.6,<3", "numpy>=2,<3", "Pillow>=11,<13", "psutil>=6,<8"]
 
 [project.optional-dependencies]
-mac = ["pyobjc-framework-Quartz>=11,<13; sys_platform == 'darwin'", "pyobjc-framework-Cocoa>=11,<13; sys_platform == 'darwin'"]
+mac = ["pyobjc-framework-Quartz>=11,<13; sys_platform == 'darwin'", "pyobjc-framework-Cocoa>=11,<13; sys_platform == 'darwin'", "pyobjc-framework-Vision>=11,<13; sys_platform == 'darwin'"]
 dev = ["pytest>=8,<10"]
 
 [project.scripts]

@@ -1,18 +1,17 @@
 {
   "schema_version": 1,
-  "checked_at_utc": "2026-10-05T14:03:04.978922+00:00",
-  "command": "python -m pytest -q (installed editable package; temporary JUnit output)",
+  "checked_at_utc": "2026-10-05T20:19:17.594210+00:00",
+  "command": "python -m pytest tests -q",
   "status": "passed",
   "result": {
-    "tests": 68,
+    "tests": 82,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "passed": 68,
-    "seconds": 2.275,
+    "passed": 82,
+    "seconds": 7.84,
     "failing_tests": []
   },
-  "source_and_test_fingerprint_sha256": "6ae3b56e35109eb866003899e3da2f1faa56c31b703d2ea182ca7e7dc4016281",
   "prior_installed_package_run": {
     "tests": 68,
     "failures": 1,
@@ -24,5 +23,18 @@
       "test_episode_watchdog_releases_keys_during_slow_inference"
     ]
   },
-  "scope": "Portable unit and integration tests, including fake desktop backends and generated fixtures. No Roblox game completion is measured."
+  "scope": "Portable unit and integration tests, including fake desktop backends and generated fixtures. No Roblox game completion is measured.",
+  "prior_validation": {
+    "checked_at_utc": "2026-10-05T14:03:04.978922+00:00",
+    "result": {
+      "tests": 82,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 82,
+      "seconds": 7.84,
+      "failing_tests": []
+    },
+    "source_and_test_fingerprint_sha256": "6ae3b56e35109eb866003899e3da2f1faa56c31b703d2ea182ca7e7dc4016281"
+  }
 }
