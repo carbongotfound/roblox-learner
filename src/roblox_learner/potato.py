@@ -144,10 +144,33 @@ def serve(directory: Path, seconds: float = 900, activate: bool = False) -> int:
                             points=command['points']
                             if not isinstance(points,list) or not 2<=len(points)<=200:
                                 raise ValueError('Drag requires 2..200 points')
+                            if any(not isinstance(p, list) or len(p) != 2 or
+                                   any(not isinstance(v, (int, float)) or not math.isfinite(v) or not 0 <= v <= 1 for v in p)
+                                   for p in points):
+                                raise ValueError('Drag coordinates must be normalized')
                             move_to(*points[0]); wait(.05)
                             controller.apply(Action('drag',button=command.get('button','left')))
+                            q = backend.q
+                            w = backend.window()
+                            checked_geometry = time.monotonic()
+                            event_type, button_code = {
+                                'left': (q.kCGEventLeftMouseDragged, 0),
+                                'right': (q.kCGEventRightMouseDragged, 1),
+                                'middle': (q.kCGEventOtherMouseDragged, 2),
+                            }[command.get('button', 'left')]
+                            previous = points[0]
                             for point in points[1:]:
-                                move_to(*point)
+                                controller.check()
+                                if time.monotonic() - checked_geometry >= .25:
+                                    if backend.window() != w:
+                                        raise RuntimeError('Window geometry changed during drag')
+                                    checked_geometry = time.monotonic()
+                                location = (w.x + point[0]*w.width, w.y + point[1]*w.height)
+                                event = q.CGEventCreateMouseEvent(None, event_type, location, button_code)
+                                q.CGEventSetIntegerValueField(event, q.kCGMouseEventDeltaX, round((point[0]-previous[0])*w.width))
+                                q.CGEventSetIntegerValueField(event, q.kCGMouseEventDeltaY, round((point[1]-previous[1])*w.height))
+                                q.CGEventPost(q.kCGHIDEventTap, event)
+                                previous = point
                                 wait(duration/(len(points)-1))
                         elif op == 'scroll':
                             delta=int(command.get('delta',0))

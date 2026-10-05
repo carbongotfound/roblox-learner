@@ -332,6 +332,11 @@ class MacDesktop:
             bool(q.CGEventSourceKeyState(source, ESCAPE_CODE)),
             bool(q.CGEventSourceKeyState(source, F8_CODE)), *totals)
 
+    def escape_pressed(self) -> bool:
+        """Check the stop key without polling the entire demonstration state."""
+        return bool(self.q.CGEventSourceKeyState(
+            self.q.kCGEventSourceStateCombinedSessionState, ESCAPE_CODE))
+
     def key(self, name: str, down: bool) -> None:
         if down:
             self.require_focus()
@@ -413,7 +418,9 @@ class InputController:
         self._lock = threading.RLock()
 
     def check(self) -> None:
-        if self.backend.input_state().escape:
+        escape_check = getattr(self.backend, 'escape_pressed', None)
+        escape = escape_check() if escape_check is not None else self.backend.input_state().escape
+        if escape:
             self.release_all()
             raise EmergencyStop("Escape pressed")
         if not self.backend.is_focused():

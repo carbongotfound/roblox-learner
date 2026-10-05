@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at_utc": "2026-10-05T20:19:17.594210+00:00",
+  "checked_at_utc": "2026-10-05T22:10:49.966212+00:00",
   "overall_status": "incomplete_live_training_and_gameplay_validation",
   "user_goal_achieved": false,
   "package": {
@@ -69,7 +69,7 @@
     "native_client_launched": true,
     "peel_a_potato_lobby_opened": true,
     "observed_via": "Computer-use UI by interactive root agent",
-    "scope": "Correct Peel THE Potato session played through quest 6/6 using external mouse and keyboard. Key and escape remain unverified.",
+    "scope": "Correct Peel THE Potato played using external mouse and keyboard. First round ended in maintenance shutdown at quest 6/6 without a key or escape. Fresh solo retry in progress.",
     "peel_the_potato_place_id": 116701845804918
   },
   "standalone_os_permissions": {
@@ -98,13 +98,19 @@
     "external_operator_play": {
       "game": "Peel THE Potato",
       "place_id": 116701845804918,
-      "progress": "Quest 6/6: find the key",
+      "progress": "Fresh solo retry: quest 4/6; 440 potatoes peeled, 125 more being processed at last observation",
       "controller": "Root assistant operating external mouse/keyboard workbench and guarded peel-table strokes",
-      "initial_session": "cooperative; continued alone after the other player left",
+      "initial_session": "Original cooperative round continued solo, then ended with maintenance. Current retry is solo.",
       "trained_policy": false,
       "key_found": false,
       "escape_verified": false,
-      "video_recorded": true
+      "video_recorded": true,
+      "prior_attempt": {
+        "progress": "Quest 6/6: find the key",
+        "outcome": "Failed: Roblox server maintenance shutdown, error 275",
+        "key_found": false,
+        "escape_verified": false
+      }
     }
   },
   "compute_diagnostic": {
@@ -122,7 +128,7 @@
     "repository_url": "https://github.com/carbongotfound/roblox-learner"
   },
   "remaining_work": [
-    "Finish the current externally controlled key and escape objective; do not count it as a trained-policy win.",
+    "Complete the external key and escape objective after the maintenance interruption; do not count operator play as a trained-policy win.",
     "Record correctly aligned real demonstrations and train a game policy.",
     "Refine on observed failures while preserving held-out data.",
     "Run independent unassisted game trials with visible success evidence.",
