@@ -11,6 +11,7 @@ import argparse
 import hashlib
 import json
 import math
+import sys
 import time
 import uuid
 from dataclasses import dataclass
@@ -243,6 +244,10 @@ def run_episode(backend: DesktopBackend, policy: Policy, actions: Sequence[Actio
 
 
 def main(argv: list[str] | None = None) -> int:
+    effective = list(sys.argv[1:] if argv is None else argv)
+    if effective and effective[0] == "p2p":
+        from .p2p_play import main as p2p_main
+        return p2p_main(effective[1:])
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", type=Path)
     parser.add_argument("--config", type=Path, help="Optional config; vocabulary must match checkpoint exactly")

@@ -375,7 +375,13 @@ class MacDesktop:
             raise DesktopError("Accessibility permission is not granted for OS input events")
         q = self.q
         w = self.window()
-        state = self.input_state()
+        # Movement needs pointer/buttons only. Polling the entire demonstration
+        # keyboard state here adds dozens of OS calls to every aiming update.
+        point = q.CGEventGetLocation(q.CGEventCreate(None))
+        buttons = () if self._held_mouse_button is not None else tuple(
+            name for name, code in BUTTONS.items()
+            if q.CGEventSourceButtonState(q.kCGEventSourceStateCombinedSessionState, code))
+        state = RawInput(buttons=buttons, x=float(point.x), y=float(point.y))
         x = min(w.x + w.width - 1, max(w.x + 1, state.x + dx * w.width))
         y = min(w.y + w.height - 1, max(w.y + 1, state.y + dy * w.height))
         event_type, button = q.kCGEventMouseMoved, 0

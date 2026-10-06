@@ -1,0 +1,55 @@
+{
+  "mode": "foreground_roblox_capture_without_input",
+  "live_input": false,
+  "checkpoint": "untrained-workload.pt",
+  "training_epoch": null,
+  "iterations": 40,
+  "diagnostics": {
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "target_bundle": "com.roblox.RobloxPlayer",
+    "foreground_bundle": "com.roblox.RobloxPlayer",
+    "roblox_focused": true,
+    "screen_recording_granted": true,
+    "accessibility_granted": true,
+    "input_monitoring_granted": true,
+    "raw_mouse_deltas_available": false,
+    "capture_backend": "quartz"
+  },
+  "screenshot_size": [
+    960,
+    947
+  ],
+  "timings": {
+    "capture": {
+      "p50_ms": 13.812938006594777,
+      "p95_ms": 15.305662190075964,
+      "mean_ms": 13.46715745748952,
+      "max_ms": 15.765208983793855,
+      "p95_equivalent_fps": 65.33529798197101
+    },
+    "policy": {
+      "p50_ms": 2.9074165504425764,
+      "p95_ms": 3.331347880885005,
+      "mean_ms": 2.9104467655997723,
+      "max_ms": 3.3704580273479223,
+      "p95_equivalent_fps": 300.17879721836204
+    },
+    "capture_to_prediction": {
+      "p50_ms": 16.777062439359725,
+      "p95_ms": 18.64612459903583,
+      "mean_ms": 16.377604223089293,
+      "max_ms": 18.95954180508852,
+      "p95_equivalent_fps": 53.63044715745968
+    }
+  },
+  "max_accounted_agent_memory_mb": 368.902144,
+  "excluded_from_latency": [
+    "input injection",
+    "Roblox input handling/rendering",
+    "networking"
+  ],
+  "gameplay_success": "NOT EVALUATED",
+  "observed_scene": "Roblox home screen, not active gameplay",
+  "trained": false,
+  "usable_game_policy": false
+}

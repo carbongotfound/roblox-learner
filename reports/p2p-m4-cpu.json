@@ -1,0 +1,110 @@
+{
+  "model": "Open Pixel2Play 150M",
+  "upstream": "https://github.com/elefant-ai/open-p2p",
+  "checkpoint_sha256": "2a3b43121144ca2d9c2b8aa605e313184c98ac5ef6d2c3b530c2d353d886c5bc",
+  "device": "cpu",
+  "upstream_training_step": 500000,
+  "tensor_elements_including_buffers": 183226081,
+  "iterations": 20,
+  "history_limit_frames": 200,
+  "p50_ms": 422.16852051205933,
+  "p95_ms": 438.23236185126007,
+  "mean_ms": 420.9356875391677,
+  "max_ms": 446.28020911477506,
+  "compute_meets_20hz_p95": false,
+  "max_conservative_agent_memory_mb": 1166.163968,
+  "examples": [
+    {
+      "tokens": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        8
+      ],
+      "keys": [],
+      "buttons": [],
+      "mouse_dx_pixels": 0,
+      "mouse_dy_pixels": 0
+    },
+    {
+      "tokens": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        8
+      ],
+      "keys": [],
+      "buttons": [],
+      "mouse_dx_pixels": 0,
+      "mouse_dy_pixels": 0
+    },
+    {
+      "tokens": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        8
+      ],
+      "keys": [],
+      "buttons": [],
+      "mouse_dx_pixels": 0,
+      "mouse_dy_pixels": 0
+    },
+    {
+      "tokens": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        8
+      ],
+      "keys": [],
+      "buttons": [],
+      "mouse_dx_pixels": 0,
+      "mouse_dy_pixels": 0
+    },
+    {
+      "tokens": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        11,
+        8
+      ],
+      "keys": [],
+      "buttons": [],
+      "mouse_dx_pixels": 0,
+      "mouse_dy_pixels": 0
+    }
+  ],
+  "pretrained": true,
+  "port_numerical_parity_verified": false,
+  "gameplay_success": "NOT EVALUATED",
+  "live_input": false,
+  "excludes": [
+    "screen capture",
+    "OS input",
+    "game rendering",
+    "network"
+  ],
+  "resize_difference": "Pillow Hamming instead of upstream Rust Hamming interpolation",
+  "mouse_decode": "bin centers rather than upstream truncated normal sampling"
+}

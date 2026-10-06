@@ -1,0 +1,122 @@
+{
+  "model": "Open Pixel2Play 150M",
+  "upstream": "https://github.com/elefant-ai/open-p2p",
+  "checkpoint_sha256": "2a3b43121144ca2d9c2b8aa605e313184c98ac5ef6d2c3b530c2d353d886c5bc",
+  "device": "mps",
+  "upstream_training_step": 500000,
+  "tensor_elements_including_buffers": 183226081,
+  "iterations": 240,
+  "history_limit_frames": 200,
+  "p50_ms": 50.57760456111282,
+  "p95_ms": 62.90214769542217,
+  "mean_ms": 52.10365278956791,
+  "max_ms": 78.34649994038045,
+  "compute_meets_20hz_p95": false,
+  "max_conservative_agent_memory_mb": 2044.444672,
+  "examples": [
+    {
+      "tokens": [
+        6,
+        0,
+        0,
+        0,
+        1,
+        0,
+        5,
+        12
+      ],
+      "keys": [
+        "a"
+      ],
+      "buttons": [
+        "left"
+      ],
+      "mouse_dx_pixels": -24,
+      "mouse_dy_pixels": 6
+    },
+    {
+      "tokens": [
+        6,
+        0,
+        0,
+        0,
+        1,
+        0,
+        4,
+        11
+      ],
+      "keys": [
+        "a"
+      ],
+      "buttons": [
+        "left"
+      ],
+      "mouse_dx_pixels": -38,
+      "mouse_dy_pixels": 4
+    },
+    {
+      "tokens": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        7
+      ],
+      "keys": [],
+      "buttons": [],
+      "mouse_dx_pixels": -38,
+      "mouse_dy_pixels": -1
+    },
+    {
+      "tokens": [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        3
+      ],
+      "keys": [
+        "w"
+      ],
+      "buttons": [],
+      "mouse_dx_pixels": -24,
+      "mouse_dy_pixels": -10
+    },
+    {
+      "tokens": [
+        11,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        5
+      ],
+      "keys": [
+        "w"
+      ],
+      "buttons": [],
+      "mouse_dx_pixels": -24,
+      "mouse_dy_pixels": -4
+    }
+  ],
+  "pretrained": true,
+  "port_numerical_parity_verified": false,
+  "gameplay_success": "NOT EVALUATED",
+  "live_input": false,
+  "excludes": [
+    "screen capture",
+    "OS input",
+    "game rendering",
+    "network"
+  ],
+  "resize_difference": "Pillow Hamming instead of upstream Rust Hamming interpolation",
+  "mouse_decode": "bin centers rather than upstream truncated normal sampling"
+}

@@ -6,6 +6,8 @@ A small, local visual-policy training toolkit for macOS. It records gameplay dem
 
 This is an independent MIT-licensed project, not an official Roblox model. Supporting a game's controls does not mean solving that game. New games require demonstrations, a useful action vocabulary, and a verifiable success condition.
 
+For pretrained fast-game research, see the experimental [Open Pixel2Play Mac adapter](docs/PRETRAINED.md). Live Rivals trials on an M4 reached **3.7–4.8 decisions/second**, used at most **2.2GB of accounted agent memory**, and demonstrated movement and aiming, but **zero verified wins and zero shooting-range targets destroyed**. This is not yet a capable fast-game player. See the [measured live results](reports/p2p-live-assessment.json).
+
 ## Install
 
 Use Python 3.11 or newer on Apple Silicon macOS:

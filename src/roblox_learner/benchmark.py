@@ -143,6 +143,52 @@ def benchmark(args: argparse.Namespace) -> dict[str, Any]:
     return report
 
 
+def benchmark_live_capture(args: argparse.Namespace) -> dict[str, Any]:
+    """Read real foreground Roblox frames and predict without injecting input."""
+    from .desktop import MacDesktop, DesktopError, countdown
+    from .play import TorchPolicy
+    if not 1 <= args.iterations <= 1000 or not 0 <= args.warmup <= 100:
+        raise ValueError("Live capture requires iterations 1..1000 and warmup 0..100")
+    policy = TorchPolicy(Path(args.checkpoint), "cpu" if args.device == "auto" else args.device, args.threads)
+    backend = MacDesktop()
+    countdown(args.countdown)
+    timings = {"capture": [], "policy": [], "capture_to_prediction": []}
+    maximum_memory = 0
+    deadline = time.monotonic() + 120
+    for i in range(args.warmup + args.iterations):
+        if time.monotonic() >= deadline:
+            raise DesktopError("Live capture benchmark exceeded 120 seconds")
+        if backend.escape_pressed():
+            raise DesktopError("Escape pressed")
+        start = time.perf_counter()
+        frame = backend.capture()
+        captured = time.perf_counter()
+        policy.predict(frame)
+        end = time.perf_counter()
+        memory = policy.accounted_memory_mb()
+        maximum_memory = max(memory, maximum_memory)
+        if memory > 5500:
+            raise DesktopError("Agent memory exceeded 5500MB")
+        if i >= args.warmup:
+            timings["capture"].append((captured - start) * 1000)
+            timings["policy"].append((end - captured) * 1000)
+            timings["capture_to_prediction"].append((end - start) * 1000)
+    report = {"mode": "foreground_roblox_capture_without_input", "live_input": False,
+              "checkpoint": str(Path(args.checkpoint).resolve()),
+              "training_epoch": policy.metadata.get("epoch"), "iterations": args.iterations,
+              "diagnostics": backend.diagnostics(), "screenshot_size": list(frame.size),
+              "timings": {k: _latencies(v) for k, v in timings.items()},
+              "max_accounted_agent_memory_mb": maximum_memory,
+              "excluded_from_latency": ["input injection", "Roblox input handling/rendering", "networking"],
+              "gameplay_success": "NOT EVALUATED"}
+    if args.output:
+        destination = Path(args.output)
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    print(json.dumps(report, indent=2, allow_nan=False), flush=True)
+    return report
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--checkpoint", required=True)
@@ -153,14 +199,19 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--fps-target", type=float, default=20)
     parser.add_argument("--image", help="Optional real screenshot to use as the inference workload")
     parser.add_argument("--output", help="Optional JSON report path")
+    parser.add_argument("--live-capture", action="store_true", help="Benchmark real Roblox window capture plus prediction, without injecting controls")
+    parser.add_argument("--countdown", type=float, default=5)
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
-        benchmark(args)
-    except (ValueError, FileNotFoundError) as exc:
+        if args.live_capture:
+            benchmark_live_capture(args)
+        else:
+            benchmark(args)
+    except (ValueError, FileNotFoundError, RuntimeError) as exc:
         print(f"Benchmark error: {exc}", file=sys.stderr)
         return 2
     return 0

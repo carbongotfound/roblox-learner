@@ -1,0 +1,7 @@
+{
+  "test": "CPU transformer layer vs upstream implementation",
+  "upstream_revision": "a329d98cbe62119679a254d71bea6446773541bc",
+  "maximum_absolute_difference": 0.0,
+  "passed": true,
+  "scope": "one layer; does not establish whole-model parity or gameplay"
+}

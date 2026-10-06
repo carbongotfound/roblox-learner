@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-06",
+  "hardware": "Mac mini M4",
+  "status": "EXPERIMENTAL: speed and gameplay acceptance criteria not met",
+  "pretrained_upstream": "https://github.com/elefant-ai/open-p2p",
+  "trained_by_this_project": false,
+  "complete_model_port_parity_verified": false,
+  "verified_wins": 0,
+  "range_targets_broken": 0,
+  "range_target_goal": 5,
+  "agent_memory_under_6000mb_in_measured_trials": true,
+  "sustained_15hz_live_control_demonstrated": false,
+  "game_and_os_memory_included": false,
+  "observations": [
+    "Autonomous movement and camera changes observed in the range.",
+    "No target destruction or successful competitive play established.",
+    "First match was entered during setup; AFK deaths before policy startup mean the match is not a controlled skill evaluation.",
+    "No human keyboard or mouse correction was applied during the bounded model trials.",
+    "Lower graphics increased throughput but remained under 5 decisions/sec overall.",
+    "Original automatic graphics mode restored and all trial controls released."
+  ],
+  "trials": [
+    {
+      "model": "Open Pixel2Play 150M (experimental Mac port)",
+      "checkpoint_sha256": "2a3b43121144ca2d9c2b8aa605e313184c98ac5ef6d2c3b530c2d353d886c5bc",
+      "live_input": true,
+      "steps": 221,
+      "duration_seconds": 60.37015275005251,
+      "decisions_per_second": 3.6607493924190506,
+      "max_conservative_agent_memory_mb": 1833.140224,
+      "capture_to_control_p50_ms": 217.2454169485718,
+      "capture_to_control_p95_ms": 250.90616708621383,
+      "reason": "duration_limit",
+      "outcome": "unverified",
+      "evidence_frames": 221,
+      "latency_excludes": [
+        "game response/rendering",
+        "network"
+      ],
+      "recording": "timestamped JPEG frames and action log",
+      "trial": "p2p-rivals-trial-001",
+      "scene": "live match",
+      "graphics": "Automatic",
+      "predicted_steps_with_movement": 26,
+      "predicted_steps_with_fire": 7,
+      "timing_breakdown_p50_ms": {}
+    },
+    {
+      "model": "Open Pixel2Play 150M (experimental Mac port)",
+      "checkpoint_sha256": "2a3b43121144ca2d9c2b8aa605e313184c98ac5ef6d2c3b530c2d353d886c5bc",
+      "live_input": false,
+      "steps": 73,
+      "duration_seconds": 15.514634625054896,
+      "decisions_per_second": 4.705234880756446,
+      "max_conservative_agent_memory_mb": 2078.408704,
+      "capture_to_control_p50_ms": 165.00595794059336,
+      "capture_to_control_p95_ms": 193.4708253480494,
+      "reason": "duration_limit",
+      "outcome": "unverified",
+      "evidence_frames": 63,
+      "latency_excludes": [
+        "game response/rendering",
+        "network"
+      ],
+      "recording": "timestamped JPEG frames and action log",
+      "trial": "p2p-rivals-shadow-002",
+      "scene": "post-match result screen, prediction only",
+      "graphics": "Automatic",
+      "predicted_steps_with_movement": 0,
+      "predicted_steps_with_fire": 53,
+      "timing_breakdown_p50_ms": {
+        "capture_ms": 33.681249944493175,
+        "policy_ms": 130.5747909937054,
+        "control_ms": 0.04900014027953148
+      }
+    },
+    {
+      "model": "Open Pixel2Play 150M (experimental Mac port)",
+      "checkpoint_sha256": "2a3b43121144ca2d9c2b8aa605e313184c98ac5ef6d2c3b530c2d353d886c5bc",
+      "live_input": true,
+      "steps": 120,
+      "duration_seconds": 30.578660832950845,
+      "decisions_per_second": 3.9243052746996305,
+      "max_conservative_agent_memory_mb": 2132.082688,
+      "capture_to_control_p50_ms": 197.28310441132635,
+      "capture_to_control_p95_ms": 237.02947093406692,
+      "reason": "duration_limit",
+      "outcome": "unverified",
+      "evidence_frames": 117,
+      "latency_excludes": [
+        "game response/rendering",
+        "network"
+      ],
+      "recording": "timestamped JPEG frames and action log",
+      "trial": "p2p-rivals-range-003",
+      "scene": "shooting range",
+      "graphics": "Automatic",
+      "predicted_steps_with_movement": 120,
+      "predicted_steps_with_fire": 0,
+      "timing_breakdown_p50_ms": {
+        "capture_ms": 38.86025003157556,
+        "policy_ms": 154.3229166418314,
+        "control_ms": 2.416020375676453
+      }
+    },
+    {
+      "model": "Open Pixel2Play 150M (experimental Mac port)",
+      "checkpoint_sha256": "2a3b43121144ca2d9c2b8aa605e313184c98ac5ef6d2c3b530c2d353d886c5bc",
+      "live_input": true,
+      "steps": 145,
+      "duration_seconds": 30.22088133310899,
+      "decisions_per_second": 4.798006993963568,
+      "max_conservative_agent_memory_mb": 2191.9006719999998,
+      "capture_to_control_p50_ms": 167.79199987649918,
+      "capture_to_control_p95_ms": 194.69704190269107,
+      "reason": "duration_limit",
+      "outcome": "unverified",
+      "evidence_frames": 125,
+      "latency_excludes": [
+        "game response/rendering",
+        "network"
+      ],
+      "recording": "timestamped JPEG frames and action log",
+      "trial": "p2p-rivals-low-004",
+      "scene": "shooting range",
+      "graphics": "Manual quality 1",
+      "predicted_steps_with_movement": 60,
+      "predicted_steps_with_fire": 0,
+      "timing_breakdown_p50_ms": {
+        "capture_ms": 33.50808401592076,
+        "policy_ms": 131.5752079244703,
+        "control_ms": 2.082542050629854
+      }
+    }
+  ],
+  "recording": {
+    "file": "rivals-p2p-01.mp4",
+    "seconds": 793.4,
+    "frames": 3967,
+    "fps": 5,
+    "resolution": [
+      1280,
+      720
+    ],
+    "audio": false,
+    "includes": "manual setup, diagnostics and bounded autonomous trials",
+    "publicly_uploaded": false
+  },
+  "next_required_work": [
+    "Establish whole-model port parity including preprocessing and action sampling.",
+    "Reduce live capture and model latency to a sustained 15-20Hz without exceeding memory budget.",
+    "Collect game-specific successful demonstrations or use validated upstream deployment; fine-tune and evaluate held-out objectives."
+  ]
+}
